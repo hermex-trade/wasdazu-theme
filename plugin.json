@@ -1,0 +1,18 @@
+{
+    "name"                  :"WasdazuTheme",
+    "description"           :"Basic theme plugin",
+    "namespace"             :"WasdazuTheme",
+    "author"                :"Nicolas Almy",
+    "keywords"              : ["theme", "Ceres", "template"],
+    "type"                  :"theme",
+    "require"               : [],
+    "serviceProvider"       :"WasdazuTheme\\Providers\\ThemeServiceProvider",
+    "dataProviders"         :
+    [
+        {
+            "key"           :"WasdazuTheme\\Containers\\ThemeContainer",
+            "name"          :"Dark background",
+            "description"   :"Change the background colour of the Ceres template"
+        }
+    ]
+}
