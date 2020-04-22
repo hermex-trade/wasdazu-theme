@@ -9,7 +9,7 @@
     "dataProviders": 
     [
         {
-            "key": "WasdazuTheme\\Containers\\WasdazuThemeContainer",
+            "key": "WasdazuTheme\\Containers\\WasdazuThemeCSSContainer",
             "name": "Wasdazu Theme",
             "description": "Wasdazu Theme"
         }

@@ -1,10 +1,10 @@
 <?php
  
-namespace WasdazuTheme\Providers;
+namespace WasdazuTheme\Containers;
 
 use Plenty\Plugin\Templates\Twig;
  
-class WasdazuThemeContainer
+class WasdazuThemeCSSContainer
 {
     public function call(Twig $twig):string
     {
