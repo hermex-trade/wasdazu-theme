@@ -1,0 +1,16 @@
+{% import "Ceres::PageDesign.Macros.LayoutContainer" as LayoutContainer %}
+
+<script type="x/template" id="vue-create-update-address">
+    <form ref="addressForm" method="post" @submit.prevent>
+        <div>
+            <p>My Update Adress</p>
+        </div>
+        <button
+            type="submit"
+            class="btn btn-primary btn-appearance btn-block"
+            @click="validate"
+            :disabled="waiting">
+            {{ trans("Ceres::Template.addressSave") }}
+        </button>
+    </form>
+</script>
