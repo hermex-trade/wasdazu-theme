@@ -6,13 +6,5 @@
     "keywords"              : ["theme", "Ceres", "template"],
     "type"                  : "theme",
     "require"               : [],
-    "serviceProvider"       : "WasdazuTheme\\Providers\\ThemeServiceProvider",
-    "dataProviders"         : 
-    [
-        {
-            "key": "WasdazuTheme\\Containers\\WasdazuThemeCSSContainer",
-            "name": "Wasdazu Theme",
-            "description": "Wasdazu Theme"
-        }
-    ]
+    "serviceProvider"       : "WasdazuTheme\\Providers\\ThemeServiceProvider"
 }
