@@ -14,4 +14,9 @@ class ThemeServiceProvider extends ServiceProvider
 	{
  
 	}
+
+	public function boot(Twig $twig, Dispatcher $eventDispatcher) 
+	{
+		$this->overrideTemplate("Ceres::Customer.Components.AddressInputGroup.AdressInputGroup", "WasdazuTheme::content.AdressInputGroup.AdressInputGroup");
+	}
 }
