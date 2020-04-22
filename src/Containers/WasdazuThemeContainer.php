@@ -4,7 +4,7 @@ namespace WasdazuTheme\Providers;
 
 use Plenty\Plugin\Templates\Twig;
  
-class ThemeContainer
+class WasdazuThemeContainer
 {
     public function call(Twig $twig):string
     {
