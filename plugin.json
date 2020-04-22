@@ -1,12 +1,13 @@
 {
-    "name"                  :"WasdazuTheme",
-    "description"           :"A theme for wasdazu.ch",
-    "namespace"             :"WasdazuTheme",
-    "author"                :"Nicolas Almy",
+    "name"                  : "WasdazuTheme",
+    "description"           : "A theme for wasdazu.ch",
+    "namespace"             : "WasdazuTheme",
+    "author"                : "Nicolas Almy",
     "keywords"              : ["theme", "Ceres", "template"],
-    "type"                  :"theme",
-    "serviceProvider"       :"WasdazuTheme\\Providers\\ThemeServiceProvider",
-    "dataProviders": 
+    "type"                  : "theme",
+    "require"               : [],
+    "serviceProvider"       : "WasdazuTheme\\Providers\\ThemeServiceProvider",
+    "dataProviders"         : 
     [
         {
             "key": "WasdazuTheme\\Containers\\WasdazuThemeCSSContainer",
