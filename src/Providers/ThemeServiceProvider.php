@@ -20,6 +20,6 @@ class ThemeServiceProvider extends TemplateServiceProvider
 
 	public function boot(Twig $twig, Dispatcher $eventDispatcher) 
 	{
-		$this->overrideTemplate("Ceres::Customer.Components.AdressSelect", "WasdazuTheme::content.AdressSelect");
+		$this->overrideTemplate("Ceres::Customer.Components.AdressSelect.AdressSelect", "WasdazuTheme::content.AdressSelect");
 	}
 }
