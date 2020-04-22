@@ -3,6 +3,8 @@
 namespace WasdazuTheme\Providers;
  
 use Plenty\Modules\Webshop\Template\Providers\TemplateServiceProvider;
+use Plenty\Plugin\Templates\Twig;
+use Plenty\Plugin\Events\Dispatcher;
 
 class ThemeServiceProvider extends TemplateServiceProvider
 {
