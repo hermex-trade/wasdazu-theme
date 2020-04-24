@@ -89,9 +89,11 @@
                 </label>
             </div>
         </div>
-    
-        <date-picker></date-picker>
-        
+
+        <div v-if="isInOptionalFields('de', 'billing_address.birthday')" class="col-12 col-sm-4">
+            <date-picker></date-picker>
+        </div>
+
         <div v-if="isInOptionalFields('de', 'billing_address.phoneNumber')" class="col-12 col-sm-4">
             <div
                 class="input-unit"
