@@ -1,7 +1,7 @@
 <script type="x/template" id="vue-salutation-select">
     <div>
         <div v-for="(salutation, index) in currentSalutation">
-            <input :id="'salutation' + index" :selected="addressData.gender === salutation.key && checkGenderCompany(salutation.key)" :value="salutation.key" type="radio" @change="emitInputEvent($event.target.value)" name="salutation" :checked="index === 0">
+            <input :id="'salutation' + index" :selected="addressData.gender === salutation.key && checkGenderCompany(salutation.key)" :value="salutation.key" type="radio" @change="emitInputEvent($event.target.value)" name="salutation" :checked="addressData.gender === salutation.key">
             <label :for="'salutation' + index">
                 ${ salutation.name }
             </label>
