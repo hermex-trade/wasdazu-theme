@@ -1,8 +1,3 @@
 <script type="x/template" id="vue-salutation-select">
-    <div v-for="(salutation, index) in currentSalutation">
-        <input :value="addressData.gender" type="checkbox" id="'saluation' + _uid" name="saluation.name">
-        <label :selected="addressData.gender === salutation.key && checkGenderCompany(salutation.key)" for="'saluation' + _uid">
-            ${ salutation.name }
-        </label>
-    </div>
+    <p v-for="(salutation, index) in currentSalutation">$(salutation.name)</p>
 </script>
