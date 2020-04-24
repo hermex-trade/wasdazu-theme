@@ -4,6 +4,7 @@
     <div class="row">
         <div v-if="isInOptionalFields('de', 'billing_address.salutation')" class="col-12 col-sm-4">
             <div v-validate="isInRequiredFields('de', 'billing_address.salutation')">
+                <h2> ${ transformTranslation("Ceres::Template.addressSalutation", "de", "billing_address.salutation") } </h2>
                 <salutation-select :address-type="addressType" :address-data="value" :enabled-address-fields="optionalAddressFields" :default-salutation="defaultSalutation" @input="emitInputEvent($event.field, $event.value)"></salutation-select>
             </div>
         </div>
@@ -116,6 +117,9 @@
 
 <div class="col-12">
     <div class="row">
+        <div class="col-12 col-sm-12">
+            <div class="input-unit" data-validate="text" data-model>
+        </div>
         <div class="col-12 col-sm-8">
             <div class="input-unit" data-validate="text" data-model="address1">
                 <input type="text" name="street" autocomplete="address-line1" :id="'txtStreet' + _uid" :value="value.address1" @input="emitInputEvent('address1', $event.target.value)">
