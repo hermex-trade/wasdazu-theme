@@ -21,6 +21,6 @@ class ThemeServiceProvider extends TemplateServiceProvider
 	{
 		$this->overrideTemplate("Ceres::Customer.Components.AddressSelect.CreateUpdateAddress", "WasdazuTheme::content.CreateUpdateAddress");
 		$this->overrideTemplate("Ceres::Customer.Components.SalutationSelect", "WasdazuTheme::content.SalutationSelect");
-		$this->overrideTemplate("Ceres::Customer.Components.AddressInputGroup.Locale.BillingAddressInputGroupDE", "WasdazuTheme::content.BillingAddressInputGroupDE")
+		$this->overrideTemplate("Ceres::Customer.Components.AddressInputGroup.Locale.BillingAddressInputGroupDE", "WasdazuTheme::content.BillingAddressInputGroupDE");
 	}
 }
