@@ -12,6 +12,12 @@
                 </div>
             </div>
 
+            <div class="col-sm-12">
+                <div class="input-unit" data-validate="mail">
+                    <input type="email" name="email-repeat" autocomplete="email" :id="'email-repeat'+_uid" v-model="username" data-autofocus>
+                    <label :for="'email-repeat'+_uid">{{trans("Ceres::Template.regEmail") }}*</label>
+            </div>
+
             <div class="col-sm-6" v-if="!guestMode">
                 <div class="input-unit" :class="{'no-bottom media-xs-d': modalElement}" data-validate="password" ref="passwordInput">
                     <popper v-cloak trigger="focus" placement="bottom" ref="passwordHint">
