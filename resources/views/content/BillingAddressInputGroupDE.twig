@@ -3,8 +3,7 @@
 <div class="col-12">
     <div class="row">
         <div v-if="isInOptionalFields('de', 'billing_address.salutation')" class="col-12 col-sm-4">
-            <div
-                v-validate="isInRequiredFields('de', 'billing_address.salutation')">
+            <div v-validate="isInRequiredFields('de', 'billing_address.salutation')">
                 <salutation-select :address-type="addressType" :address-data="value" :enabled-address-fields="optionalAddressFields" :default-salutation="defaultSalutation" @input="emitInputEvent($event.field, $event.value)"></salutation-select>
             </div>
         </div>
