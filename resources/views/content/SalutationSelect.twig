@@ -1,7 +1,8 @@
 <script type="x/template" id="vue-salutation-select">
-    <select :value="addressData.gender" class="custom-select" @change="emitInputEvent($event.target.value)" data-autofocus>
-        <option :value="salutation.key" :selected="addressData.gender === salutation.key && checkGenderCompany(salutation.key)" v-for="(salutation, index) in currentSalutation">
-            ${ salutation.name }
-        </option>
-    </select>
+    <div  v-for="(salutation, index) in currentSalutation">
+        <input id="'saluation' +_uid" :selected="addressData.gender === salutation.key && checkGenderCompany(salutation.key)" :value="addressData.gender" type="radio" id="'saluation' +_uid" @change="emitInputEvent($event.target.value)" name="salutation">
+        <label for="'saluation' +_uid">
+             ${ salutation.name }
+        </label>
+    </div>
 </script>
