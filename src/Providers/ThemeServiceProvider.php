@@ -20,15 +20,15 @@ class ThemeServiceProvider extends TemplateServiceProvider
 
 	public function boot(Twig $twig, Dispatcher $eventDispatcher) 
 	{
+		// Override Templates
+		$this->overrideTemplate("Ceres::Customer.Components.AddressSelect.CreateUpdateAddress", "WasdazuTheme::content.CreateUpdateAddress");
+		$this->overrideTemplate("Ceres::Customer.Components.SalutationSelect", "WasdazuTheme::content.SalutationSelect");
+		$this->overrideTemplate("Ceres::Customer.Components.AddressInputGroup.Locale.BillingAddressInputGroupDE", "WasdazuTheme::content.BillingAddressInputGroupDE");
+	
 		// Register own Vue Components
 		$eventDispatcher->listen('IO.Resources.Import', function (ResourceContainer $container)
         {
             $container->addScriptTemplate('WasdazuTheme::Components.Datepicker');
         }, 0);
-
-		// Override Templates
-		$this->overrideTemplate("Ceres::Customer.Components.AddressSelect.CreateUpdateAddress", "WasdazuTheme::content.CreateUpdateAddress");
-		$this->overrideTemplate("Ceres::Customer.Components.SalutationSelect", "WasdazuTheme::content.SalutationSelect");
-		$this->overrideTemplate("Ceres::Customer.Components.AddressInputGroup.Locale.BillingAddressInputGroupDE", "WasdazuTheme::content.BillingAddressInputGroupDE");
 	}
 }
