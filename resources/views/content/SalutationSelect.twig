@@ -1,9 +1,8 @@
 <script type="x/template" id="vue-salutation-select">
-    <input type="checkbox" v-for="(salutation, index) in currentSalutation" :value="salutation.key" :selected="addressData.gender === salutation.key && checkGenderCompany(salutation.key)">
-    /*
-    <select :value="addressData.gender" class="custom-select" @change="emitInputEvent($event.target.value)" data-autofocus>
-        <option :value="salutation.key" :selected="addressData.gender === salutation.key && checkGenderCompany(salutation.key)" v-for="(salutation, index) in currentSalutation">
+    <div v-for="(salutation, index) in currentSalutation">
+        <input :value="addressData.gender" type="checkbox" id="'saluation' + _uid" name="saluation.name">
+        <label :selected="addressData.gender === salutation.key && checkGenderCompany(salutation.key)" for="'saluation' + _uid">
             ${ salutation.name }
-        </option>
-    </select>*/
+        </label>
+    </div>
 </script>
