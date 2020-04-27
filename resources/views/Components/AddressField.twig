@@ -2,7 +2,7 @@
 
 <script type="x/template" id="vue-address-field">
     <div class="input-unit" data-validate="text" data-model="fullAddress">
-        <input type="text" name="fullAddress" autocomplete="street-address" :id="'fullAddress' + _uid" :value="fullAddress" @input="emitAddressEvent('fullAddress', $event.target.value)">
+        <input type="text" name="fullAddress" v-model="fullAddress" autocomplete="street-address" :id="'fullAddress' + _uid" :value="fullAddress" @input="emitAddressEvent('fullAddress', $event.target.value)">
         <label :for="'fullAddress' + _uid">{{ trans("Ceres::Template.addressStreet") }}*</label>
     </div>
 </script>
@@ -21,7 +21,12 @@
                 return this.fullAddress.split(" ")[0]
             },
             address2() {
-                return this.fullAddress.split(" ")[1]
+                // Check if fullAddress already has content
+                // and has a space
+                if (this.fullAddress && this.fullAddress.) {
+                    return this.fullAddress.split(" ")[1]
+                }
+                return ""
             }
         },
         methods: {
