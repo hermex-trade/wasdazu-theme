@@ -15,7 +15,8 @@
         template: "#vue-date-picker",
         delimiters: ["${", "}"],
         props: [
-            'birthday'
+            'birthday',
+            ''
         ],
         computed: {
             isEdgeDesktop() {
@@ -23,6 +24,14 @@
                 var isTouch = window.ontouchstart !== undefined;
                 return isEdge && !isTouch;
             }
+        },
+        methods: {
+            transformTranslation(translationKey, locale, addressKey)
+            {
+                const translation = this.$translate(translationKey);
+                const isRequired = this.isInRequiredFields(locale, addressKey);
+                return translation + (isRequired ? "*" : "");
+            },
         }
     });
 </script>
