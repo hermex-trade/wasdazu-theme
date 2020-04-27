@@ -2,14 +2,16 @@
 {{ component( "Ceres::Customer.Components.SalutationSelect" ) }}
 
 <script type="x/template" id="vue-date-picker">
-    <div>
+    <div data-model="birthday">
         <input v-if="isEdgeDesktop" type="text" name="birthday2" placeholder="{{ trans("Ceres::Template.addressBirthdatePlaceholder") }}" 
             :id="'txtBirthdate' + _uid"
+            :value="value.birthday"
             @change="emitInputEvent($event.target.value)"
         >
         <input v-else type="date" name="birthday2" min="1901-12-14" placeholder="{{ trans("Ceres::Template.addressBirthdatePlaceholder") }}"
             :max="new Date().toISOString().split('T')[0]"  
             :id="'txtBirthdate' + _uid"
+            :value="value.birthday"
             @change="emitInputEvent($event.target.value)"
         >
         <label :for="'txtBirthdate' + _uid">

@@ -92,7 +92,6 @@
         </div>
         <div v-if="isInOptionalFields('de', 'billing_address.birthday')" class="col-12 col-sm-4">
             <div
-                data-model="birthday"
                 class="input-unit"
                 v-validate:date="isInRequiredFields('de', 'billing_address.birthday') || !!value.birthday && !!value.birthday.length">
                 <date-picker></date-picker>
