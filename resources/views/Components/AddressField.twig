@@ -2,7 +2,7 @@
 
 <script type="x/template" id="vue-address-field">
     <div class="input-unit" data-validate="text" data-model="fullAddress">
-        <input type="text" name="fullAddress" autocomplete="full-address-line" :id="'fullAddress' + _uid" :value="fullAddress" @input="emitAddressEvent('fullAddress', $event.target.value)">
+        <input type="text" name="fullAddress" autocomplete="street-address" :id="'fullAddress' + _uid" :value="fullAddress" @input="emitAddressEvent('fullAddress', $event.target.value)">
         <label :for="'fullAddress' + _uid">{{ trans("Ceres::Template.addressStreet") }}*</label>
     </div>
 </script>
