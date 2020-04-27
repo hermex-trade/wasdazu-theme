@@ -1,3 +1,20 @@
+
+<!-- Add this to <head> -->
+
+<!-- Load required Bootstrap and BootstrapVue CSS -->
+<link type="text/css" rel="stylesheet" href="//unpkg.com/bootstrap/dist/css/bootstrap.min.css" />
+<link type="text/css" rel="stylesheet" href="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.css" />
+
+<!-- Load polyfills to support older browsers -->
+<script src="//polyfill.io/v3/polyfill.min.js?features=es2015%2CIntersectionObserver" crossorigin="anonymous"></script>
+
+<!-- Load Vue followed by BootstrapVue -->
+<script src="//unpkg.com/vue@latest/dist/vue.min.js"></script>
+<script src="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.js"></script>
+
+<!-- Load the following for BootstrapVueIcons support -->
+<script src="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue-icons.min.js"></script>
+
 {{ component( "Ceres::Customer.Components.AddressInputGroup.AddressInputGroup" ) }}
 {{ component( "Ceres::Customer.Components.SalutationSelect" ) }}
 
@@ -5,11 +22,14 @@
     <div data-model="birthday">
         <input v-if="isEdgeDesktop" type="text" name="birthday2" placeholder="{{ trans("Ceres::Template.addressBirthdatePlaceholder") }}" 
             :id="'txtBirthdate' + _uid"
+               :value="value.birthday"
             @change="emitInputEvent($event.target.value)"
         >
+        <b-form-datepicker v-if="isEdgeDesktop" id="example-datepicker" v-model="value" class="mb-2"></b-form-datepicker>
         <input v-else type="date" name="birthday2" min="1901-12-14" placeholder="{{ trans("Ceres::Template.addressBirthdatePlaceholder") }}"
             :max="new Date().toISOString().split('T')[0]"  
             :id="'txtBirthdate' + _uid"
+               :value="value.birthday"
             @change="emitInputEvent($event.target.value)"
         >
         <label :for="'txtBirthdate' + _uid">
@@ -27,6 +47,9 @@
                 var isEdge = window.navigator.userAgent.indexOf("Edge/") > -1;
                 var isTouch = window.ontouchstart !== undefined;
                 return isEdge && !isTouch;
+            },
+            test() {
+                return this.value;
             }
         },
         methods: {
