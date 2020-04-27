@@ -6,7 +6,7 @@
             :value="value" 
             :id="'txtBirthdate' + _uid" 
             @input="$emit('input', $event.target.value)">
-        <input v-else type="date" name="birthday2" min="1901-12-14" name="birthday" placeholder="{{ trans("Ceres::Template.addressBirthdatePlaceholder") }}"
+        <input v-else type="date" name="birthday2" min="1901-12-14" placeholder="{{ trans("Ceres::Template.addressBirthdatePlaceholder") }}"
              :value="value" 
             :max="new Date().toISOString().split('T')[0]"  
             :id="'txtBirthdate' + _uid" 
