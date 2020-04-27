@@ -92,9 +92,9 @@
         </div>
         <div v-if="isInOptionalFields('de', 'billing_address.birthday')" class="col-12 col-sm-4">
             <div class="input-unit"
-                 data-model="name4"
+                 data-model="birthday"
                  v-validate:date="isInRequiredFields('de', 'billing_address.birthday') || !!value.birthday && !!value.birthday.length">
-                <date-picker :value=""{{ trans("Ceres::Template.addressBirthdatePlaceholder") }}""></date-picker>
+                <date-picker :birthday="value.birthday"></date-picker>
             </div>
         </div>
         <div v-if="isInOptionalFields('de', 'billing_address.phoneNumber')" class="col-12 col-sm-4">
