@@ -29,6 +29,7 @@ class ThemeServiceProvider extends TemplateServiceProvider
 		$eventDispatcher->listen('IO.Resources.Import', function (ResourceContainer $container)
         {
             $container->addScriptTemplate('WasdazuTheme::Components.Datepicker');
-        }, 0);
+			$container->addScriptTemplate('WasdazuTheme::Components.AddressField');
+		}, 0);
 	}
 }

@@ -98,7 +98,7 @@
                 <label :for="'txtBirthdate' + _uid">
                     ${ transformTranslation("Ceres::Template.addressBirthdate", "de", "billing_address.birthday") }
                 </label>
-                <date-picker :value="birthday"></date-picker>
+                <date-picker v-model="birthday"></date-picker>
             </div>
         </div>
         <div v-if="isInOptionalFields('de', 'billing_address.phoneNumber')" class="col-12 col-sm-4">
