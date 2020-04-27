@@ -1,7 +1,6 @@
 {{ component( "Ceres::Customer.Components.SalutationSelect" ) }}
 
-
-<script type="x/template" id="vue-addressfield">
+<script type="x/template" id="vue-address-field">
     <div class="col-12">
         <div class="row">
             <div class="col-12 col-sm-12">
@@ -15,11 +14,13 @@
 </script>
 
 <script>
-    Vue.component("vue-addressfield", {
+    Vue.component("addressfield", {
+        template: "#vue-address-field",
+        delimiters: ["${", "}"],
         computed: {
             address1() {
 
-            }
+            },
             address2() {
 
             }
