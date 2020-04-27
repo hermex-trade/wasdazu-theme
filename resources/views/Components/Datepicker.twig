@@ -5,14 +5,10 @@
     <div>
         <input v-if="isEdgeDesktop" type="text" name="birthday2" placeholder="{{ trans("Ceres::Template.addressBirthdatePlaceholder") }}" 
             :id="'txtBirthdate' + _uid"
-            :value="value.birthday" 
-            @input="emitInputEvent('birthday', $event.target.value)"
         >
         <input v-else type="date" name="birthday2" min="1901-12-14" placeholder="{{ trans("Ceres::Template.addressBirthdatePlaceholder") }}"
             :max="new Date().toISOString().split('T')[0]"  
             :id="'txtBirthdate' + _uid"
-            :value="value.birthday" 
-            @input="emitInputEvent('birthday', $event.target.value)"
         >
         <label :for="'txtBirthdate' + _uid">
             Geburtstag
