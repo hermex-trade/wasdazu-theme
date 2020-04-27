@@ -95,7 +95,7 @@
                 data-model="birthday"
                 class="input-unit"
                 v-validate:date="isInRequiredFields('de', 'billing_address.birthday') || !!value.birthday && !!value.birthday.length">
-                <date-picker :value="value.birthday" @input="emitInputEvent($event.field, $event.value)"></date-picker>
+                <date-picker></date-picker>
             </div>
         </div>
         <div v-if="isInOptionalFields('de', 'billing_address.phoneNumber')" class="col-12 col-sm-4">
