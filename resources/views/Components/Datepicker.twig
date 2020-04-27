@@ -22,9 +22,6 @@
     Vue.component("date-picker", {
         template: "#vue-date-picker",
         delimiters: ["${", "}"],
-        props: [
-            'value',
-        ],
         computed: {
             isEdgeDesktop() {
                 var isEdge = window.navigator.userAgent.indexOf("Edge/") > -1;
