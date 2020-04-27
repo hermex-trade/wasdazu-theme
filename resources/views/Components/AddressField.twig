@@ -17,9 +17,14 @@
     Vue.component("addressfield", {
         template: "#vue-address-field",
         delimiters: ["${", "}"],
+        data: function() {
+            return {
+                fullAddress: ""
+            }
+        }
         computed: {
             address1() {
-
+                return 
             },
             address2() {
 
