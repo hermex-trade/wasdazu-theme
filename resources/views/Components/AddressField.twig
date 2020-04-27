@@ -4,8 +4,8 @@
     <div class="col-12">
         <div class="row">
             <div class="col-12 col-sm-12">
-                <div class="input-unit" data-validate="text" data-model="fullAddress">
-                    <input type="text" name="fullAddress" autocomplete="full-address-line" :id="'fullAddress' + _uid" :value="value.fullAddress" @input="emitInputEvent('address1', $event.target.value)">
+                <div class="input-unit" data-validate="text">
+                    <input type="text" name="fullAddress" autocomplete="full-address-line" :id="'fullAddress' + _uid" :value="value.fullAddress" @input="emitAddressEvent('fullAddress', $event.target.value)">
                     <label :for="'txtStreet' + _uid">{{ trans("Ceres::Template.addressStreet") }}*</label>
                 </div>
             </div>
@@ -19,16 +19,22 @@
         delimiters: ["${", "}"],
         data: function() {
             return {
-                fullAddress: String
+                fullAddress: ""
             }
         },
         computed: {
             address1() {
-                return fullAddress.split(" ")[0]
+                return this.fullAddress.split(" ")[0]
             },
             address2() {
-                return fullAddress.split(" ")[1]
+                return this.fullAddress.split(" ")[1]
             }
+        },
+        methods: {
+            emitAddressEvent(value) {
+                this.$emit("input", {field: "address1", value: this.address1});
+                this.$emit("input", {field: "address2", value: this.address2});
+            },
         }
     })
 </script>
