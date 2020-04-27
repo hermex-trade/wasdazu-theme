@@ -22,8 +22,8 @@
             },
             address2() {
                 // Check if fullAddress already has content
-                // and has a space
-                if (this.fullAddress && this.fullAddress.) {
+                // and and contains a whitespace
+                if (this.fullAddress && this.fullAddress.indexOf(' ') > -1) {
                     return this.fullAddress.split(" ")[1]
                 }
                 return ""
