@@ -31,7 +31,7 @@
             }
         },
         methods: {
-            emitAddressEvent(value) {
+            emitAddressEvent() {
                 this.$emit("input", {field: "address1", value: this.address1});
                 this.$emit("input", {field: "address2", value: this.address2});
             },
