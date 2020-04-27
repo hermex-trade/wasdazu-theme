@@ -2,12 +2,9 @@
 
 <script type="x/template" id="vue-date-picker">
     <div>
-        <input v-if="isEdgeDesktop" type="text" name="birthday" placeholder="{{ trans("Ceres::Template.addressBirthdatePlaceholder") }}" :id="'txtBirthdate' + _uid" :value="value.birthday" @input="emitInputEvent('birthday', $event.target.value)">
-        <input v-else type="date" min="1901-12-14" :max="new Date().toISOString().split('T')[0]" name="birthday" placeholder="{{ trans("Ceres::Template.addressBirthdatePlaceholder") }}" :id="'txtBirthdate' + _uid" :value="birthday" @input="emitInputEvent('birthday', $event.target.value)">
-        <label v-if="isMandatory" :for="'txtBirthdate' + _uid">
-            Geburtstag*
-        </label>
-        <label v-else :for="'txtBirthdate' + _uid">
+        <input v-if="isEdgeDesktop" type="text" name="birthday" placeholder="{{ trans("Ceres::Template.addressBirthdatePlaceholder") }}" :id="'txtBirthdate' + _uid" :value="value" @input="emitInputEvent('birthday', $event.target.value)">
+        <input v-else type="date" name="birthday" min="1901-12-14" :max="new Date().toISOString().split('T')[0]" name="birthday" :value="value" placeholder="{{ trans("Ceres::Template.addressBirthdatePlaceholder") }}" :id="'txtBirthdate' + _uid" :value="birthday" @input="$emit('input', $event.target.value)">
+        <label :for="'txtBirthdate' + _uid">
             Geburtstag
         </label>
     </div>
@@ -18,8 +15,7 @@
         template: "#vue-date-picker",
         delimiters: ["${", "}"],
         props: [
-            'birthday',
-            'isMandatory'
+            'value',
         ],
         computed: {
             isEdgeDesktop() {
