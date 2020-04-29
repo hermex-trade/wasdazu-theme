@@ -39,7 +39,7 @@
         },
         methods: {
             emitInputEvent() {
-                if (isValid) {
+                if (this.isValid) {
                     this.$emit("input", {field: "address1", value: this.streetName});
                     this.$emit("input", {field: "address2", value: this.streetNumber});
                 } else {
