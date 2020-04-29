@@ -24,11 +24,11 @@
                 // naive implementation
                 // return this.fullAddress.split(" ")[0]
                 var address = this.splittedAddress
-                return address.slice(0, address.length - 1)
+                return address.slice(0, address.length - 1).join(' ')
             },
             streetNumber() {
                 var address = this.splittedAddress
-                return address.slice(address.length - 1)
+                return address.slice(address.length - 1).join()
             }
         },
         methods: {
