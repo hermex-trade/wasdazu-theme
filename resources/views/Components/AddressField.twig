@@ -27,14 +27,14 @@
                 return address.slice(0, address.length - 1).join(' ')
             },
             streetNumber() {
+                var address = this.splittedAddress
                 if (address.length > 1) {
-                    var address = this.splittedAddress
                     return address.slice(address.length - 1).join()
                 }
                 return ""
             },
             isValid() {
-                return this.streetNumber !== "" && this.streetName !== ""
+                return this.fullAddress !== 
             }
         },
         methods: {
