@@ -94,7 +94,7 @@
             <div
                 class="input-unit"
                 v-validate:date="isInRequiredFields('de', 'billing_address.birthday') || !!value.birthday && !!value.birthday.length">
-                <date-picker></date-picker>
+                <date-picker @input="emitInputEvent($event.field, $event.value)"></date-picker>
             </div>
         </div>
         <div v-if="isInOptionalFields('de', 'billing_address.phoneNumber')" class="col-12 col-sm-4">
@@ -114,7 +114,9 @@
 <div class="col-12">
     <div class="row">
         <div class="col-12 col-sm-12">
-            <address-field @input="emitInputEvent($event.field, $event.value)"></address-field>
+            <div v-validate:text="isInRequiredFields('de', 'billing_address.address1')">
+                <address-field @input="emitInputEvent($event.field, $event.value)"></address-field>
+            </div>
         </div>
     </div>
 </div>
