@@ -34,7 +34,7 @@
                 return ""
             },
             isValid() {
-                return this.fullAddress !== 
+                return this.splittedAddress.length !== 0 && this.streetName !== "" && this.streetNumber !== ""
             }
         },
         methods: {
