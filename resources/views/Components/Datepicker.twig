@@ -3,15 +3,10 @@
 
 <script type="x/template" id="vue-date-picker">
     <div>
-        <input v-if="isEdgeDesktop" type="text" name="birthday2" placeholder="{{ trans("Ceres::Template.addressBirthdatePlaceholder") }}" 
-            :id="'txtBirthdate' + _uid"
-            @change="emitInputEvent($event.target.value)"
-        >
         <div v-if="isEdgeDesktop">
-              <input v-if="isEdgeDesktop" type="text" name="birthday2" placeholder="{{ trans("Ceres::Template.addressBirthdatePlaceholder") }}" 
-            :id="'txtBirthdate' + _uid"
-            @change="emitInputEvent($event.target.value)"
-        >
+            <input type="text" name="day" placeholder="tt">
+            <input type="text" name="month" placeholder="mm">
+            <input type="text" name="year" placeholder="jjjj">
         </div>
         <input v-else type="date" name="birthday2" min="1901-12-14" placeholder="{{ trans("Ceres::Template.addressBirthdatePlaceholder") }}"
             :max="new Date().toISOString().split('T')[0]"  
