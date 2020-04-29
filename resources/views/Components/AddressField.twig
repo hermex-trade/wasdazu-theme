@@ -17,22 +17,24 @@
             }
         },
         computed: {
-            address1() {
-                return this.fullAddress.split(" ")[0]
+            splittedAddress() {
+                return this.fullAddress.split(" ")
             },
-            address2() {
-                // Check if fullAddress already has content
-                // and and contains a whitespace
-                if (this.fullAddress && this.fullAddress.indexOf(' ') > -1) {
-                    return this.fullAddress.split(" ")[1]
-                }
-                return ""
+            streetName() {
+                // naive implementation
+                // return this.fullAddress.split(" ")[0]
+                var address = this.splittedAddress
+                return address.slice(0, address.length - 1)
+            },
+            streetNumber() {
+                var address = this.splittedAddress
+                return address.slice(address.length - 1)
             }
         },
         methods: {
             emitInputEvent() {
-                this.$emit("input", {field: "address1", value: this.address1});
-                this.$emit("input", {field: "address2", value: this.address2});
+                this.$emit("input", {field: "address1", value: this.streetName});
+                this.$emit("input", {field: "address2", value: this.streetNumber});
             },
         }
     })
