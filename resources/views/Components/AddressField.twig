@@ -2,7 +2,7 @@
 
 <script type="x/template" id="vue-address-field">
     <div class="input-unit" data-validate="text" data-model="fullAddress">
-        <input type="text" name="fullAddress" v-model="fullAddress" autocomplete="street-address" :id="'fullAddress' + _uid" @change="emitInputEvent($event.target.value)">
+        <input type="text" :value="value.address" name="fullAddress" v-model="fullAddress" autocomplete="street-address" :id="'fullAddress' + _uid" @change="emitInputEvent($event.target.value)">
         <label :for="'fullAddress' + _uid">{{ trans("Ceres::Template.addressStreet") }}*</label>
     </div>
 </script>
@@ -13,7 +13,7 @@
         delimiters: ["${", "}"],
         data: function() {
             return {
-                fullAddress: ""
+                fullAddress: "",
             }
         },
         computed: {
@@ -27,14 +27,24 @@
                 return address.slice(0, address.length - 1).join(' ')
             },
             streetNumber() {
-                var address = this.splittedAddress
-                return address.slice(address.length - 1).join()
+                if (address.length > 1) {
+                    var address = this.splittedAddress
+                    return address.slice(address.length - 1).join()
+                }
+                return ""
+            },
+            isValid() {
+                return this.streetNumber !== "" && this.streetName === ""
             }
         },
         methods: {
             emitInputEvent() {
-                this.$emit("input", {field: "address1", value: this.streetName});
-                this.$emit("input", {field: "address2", value: this.streetNumber});
+                if (isValid) {
+                    this.$emit("input", {field: "address1", value: this.streetName});
+                    this.$emit("input", {field: "address2", value: this.streetNumber});
+                } else {
+                    console.log("Bitte Addresse überprüfen")
+                }
             },
         }
     })
