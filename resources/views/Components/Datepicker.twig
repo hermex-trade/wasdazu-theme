@@ -1,17 +1,14 @@
-
 {{ component( "Ceres::Customer.Components.AddressInputGroup.AddressInputGroup" ) }}
 {{ component( "Ceres::Customer.Components.SalutationSelect" ) }}
 
 <script type="x/template" id="vue-date-picker">
-    <div data-model="birthday">
+    <div>
         <input v-if="isEdgeDesktop" type="text" name="birthday2" placeholder="{{ trans("Ceres::Template.addressBirthdatePlaceholder") }}" 
             :id="'txtBirthdate' + _uid"
-            @change="emitInputEvent($event.target.value)"
         >
         <input v-else type="date" name="birthday2" min="1901-12-14" placeholder="{{ trans("Ceres::Template.addressBirthdatePlaceholder") }}"
             :max="new Date().toISOString().split('T')[0]"  
             :id="'txtBirthdate' + _uid"
-            @change="emitInputEvent($event.target.value)"
         >
         <label :for="'txtBirthdate' + _uid">
             Geburtstag
@@ -21,17 +18,20 @@
 
 <script>
     Vue.component("date-picker", {
-        template: "#vue-date-picker",Ve
+        template: "#vue-date-picker",
         delimiters: ["${", "}"],
+        props: [
+            'value',
+        ],
         computed: {
             isEdgeDesktop() {
                 var isEdge = window.navigator.userAgent.indexOf("Edge/") > -1;
                 var isTouch = window.ontouchstart !== undefined;
                 return isEdge && !isTouch;
-            },
+            }
         },
         methods: {
-            emitInputEvent(value) {
+            emitInputEvent() {
                 this.$emit("input", { field: "birthday", value: value });
             }
         }
