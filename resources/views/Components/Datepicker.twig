@@ -1,15 +1,19 @@
 {{ component( "Ceres::Customer.Components.AddressInputGroup.AddressInputGroup" ) }}
 {{ component( "Ceres::Customer.Components.SalutationSelect" ) }}
 
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+{% endblock %}
+{% block javascript %}
+ <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+{% endblock %}
+
 <script type="x/template" id="vue-date-picker">
     <div>
         <div v-if="isEdgeDesktop">
-            <input type="text" min="1901-12-14" placeholder="{{ trans("Ceres::Template.addressBirthdatePlaceholder") }}" 
-                onfocus="(this.type='date')"
-                onblur="(this.type='text')"
-                :max="new Date().toISOString().split('T')[0]" 
-                :id="'txtBirthdate' + _uid" 
-                @change="emitInputEvent($event.target.value)" >
+            <input type="text" id="datepicker">
         </div>
         <input v-else type="date" name="birthday2" min="1901-12-14" placeholder="{{ trans("Ceres::Template.addressBirthdatePlaceholder") }}"
             :max="new Date().toISOString().split('T')[0]"  
@@ -39,4 +43,13 @@
             },
         }
     });
+</script>
+
+<script>
+  $( function() {
+    $( "#datepicker" ).datepicker({
+      changeMonth: true,
+      changeYear: true
+    });
+  } );
 </script>
