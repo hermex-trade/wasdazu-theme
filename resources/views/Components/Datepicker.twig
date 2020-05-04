@@ -1,6 +1,10 @@
 {{ component( "Ceres::Customer.Components.AddressInputGroup.AddressInputGroup" ) }}
 {{ component( "Ceres::Customer.Components.SalutationSelect" ) }}
 
+{% block javascript %}
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+{% endblock %}
+
 <script type="x/template" id="vue-date-picker">
     <div>
         <div v-if="isEdgeDesktop">
