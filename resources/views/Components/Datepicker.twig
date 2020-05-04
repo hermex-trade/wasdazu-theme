@@ -4,9 +4,9 @@
 <script type="x/template" id="vue-date-picker">
     <div>
         <div v-if="isEdgeDesktop">
-            <input type="text" name="day" placeholder="tt">
-            <input type="text" name="month" placeholder="mm">
-            <input type="text" name="year" placeholder="jjjj">
+            <input type="number" min="1" max="31" name="day" placeholder="tt">
+            <input type="number" min="1" max="12" name="month" placeholder="mm">
+            <input type="number" min="1901" :max="new Date().getFullYear()"name="year" placeholder="jjjj">
         </div>
         <input v-else type="date" name="birthday2" min="1901-12-14" placeholder="{{ trans("Ceres::Template.addressBirthdatePlaceholder") }}"
             :max="new Date().toISOString().split('T')[0]"  
