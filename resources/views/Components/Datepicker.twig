@@ -4,7 +4,12 @@
 <script type="x/template" id="vue-date-picker">
     <div>
         <div v-if="isEdgeDesktop">
-            <input type="text" min="1901-12-14" :max="new Date().toISOString().split('T')[0]" :id="'txtBirthdate' + _uid" placeholder="{{ trans("Ceres::Template.addressBirthdatePlaceholder") }}" @change="emitInputEvent($event.target.value)" >
+            <input type="text" min="1901-12-14" placeholder="{{ trans("Ceres::Template.addressBirthdatePlaceholder") }}" 
+                onfocus="(this.type='date')"
+                onblur="(this.type='text')"
+                :max="new Date().toISOString().split('T')[0]" 
+                :id="'txtBirthdate' + _uid" 
+                @change="emitInputEvent($event.target.value)" >
         </div>
         <input v-else type="date" name="birthday2" min="1901-12-14" placeholder="{{ trans("Ceres::Template.addressBirthdatePlaceholder") }}"
             :max="new Date().toISOString().split('T')[0]"  
@@ -26,21 +31,16 @@
                 var isEdge = window.navigator.userAgent.indexOf("Edge/") > -1;
                 var isTouch = window.ontouchstart !== undefined;
                 return isEdge && !isTouch;
+            },
+            missingDateAttributes() {
+                var inputId = 'txtBirthdate' + _uid
+                $("#inputId").
             }
         },
         methods: {
             emitInputEvent(value) {
                 this.$emit("input", { field: "birthday", value: value });
             },
-            emitDayInputEvent(value) {
-
-            },
-            emitMonthInputEvent(value) {
-
-            },
-            emitYearInputEvent(value) {
-
-            }
         }
     });
 </script>
