@@ -5,7 +5,10 @@
 <script type="x/template" id="vue-date-picker">
     <div>
         <div v-if="isEdgeDesktop">
-            <input type="text" id="datepicker">
+            <input type="text" id="'datepicker' + _uid" placeholder="{{ trans("Ceres::Template.addressBirthdatePlaceholder") }}"
+                :date=""
+                @change="emitInputEvent($event.target.value)"
+            >
         </div>
         <input v-else type="date" name="birthday" min="1901-12-14" placeholder="{{ trans("Ceres::Template.addressBirthdatePlaceholder") }}"
             :max="new Date().toISOString().split('T')[0]"  
@@ -29,10 +32,18 @@
                 return isEdge && !isTouch;
             },
         },
+        data() {
+            return {
+                'date': null
+            }
+        },
         methods: {
             emitInputEvent(value) {
                 this.$emit("input", { field: "birthday", value: value });
             },
+            date() {
+                
+            }
         },
     
     });

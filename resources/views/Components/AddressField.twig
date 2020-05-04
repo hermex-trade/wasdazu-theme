@@ -43,7 +43,8 @@
                     this.$emit("input", {field: "address1", value: this.streetName});
                     this.$emit("input", {field: "address2", value: this.streetNumber});
                 } else {
-                    window.CeresNotification.error("Bitte Addresse überprüfen").closeAfter(5000);
+                    var errorMsg = "Bitte Strasse überprüfen, haben Sie die Strasse sowie die Hausnummer angegeben?"
+                    window.CeresNotification.error(errorMsg).closeAfter(5000);
                 }
             },
         }
