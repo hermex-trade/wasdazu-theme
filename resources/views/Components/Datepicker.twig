@@ -1,6 +1,15 @@
 {{ component( "Ceres::Customer.Components.AddressInputGroup.AddressInputGroup" ) }}
 {{ component( "Ceres::Customer.Components.SalutationSelect" ) }}
 
+<script>
+  $(function() {
+    $("#datepicker").datepicker({
+      changeMonth: true,
+      changeYear: true
+    });
+  });
+</script>
+
 <script type="x/template" id="vue-date-picker">
     <div>
         <div v-if="isEdgeDesktop">
@@ -34,13 +43,4 @@
             },
         }
     });
-</script>
-
-<script>
-  $(function() {
-    $("#datepicker").datepicker({
-      changeMonth: true,
-      changeYear: true
-    });
-  } );
 </script>
