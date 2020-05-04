@@ -6,7 +6,6 @@
     <div>
         <div v-if="isEdgeDesktop">
             <input type="text" id="'datepicker' + _uid" placeholder="{{ trans("Ceres::Template.addressBirthdatePlaceholder") }}"
-                :date=""
                 @change="emitInputEvent($event.target.value)"
             >
         </div>
@@ -40,9 +39,6 @@
         methods: {
             emitInputEvent(value) {
                 this.$emit("input", { field: "birthday", value: value });
-            },
-            date() {
-                
             }
         },
     
