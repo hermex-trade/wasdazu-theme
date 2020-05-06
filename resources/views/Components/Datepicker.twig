@@ -38,7 +38,7 @@
         },
         methods: {
             emitInputEvent(value) {
-                if (isEdgeDesktop) {
+                if (this.isEdgeDesktop) {
                     var day = value.split(".")[0]
                     var month = value.split(".")[1]
                     var year = value.split(".")[2]
