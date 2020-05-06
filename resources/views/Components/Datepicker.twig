@@ -5,7 +5,7 @@
 <script type="x/template" id="vue-date-picker">
     <div>
         <div v-if="isEdgeDesktop">
-            <input type="text" id="'datepicker' + _uid" placeholder="{{ trans("Ceres::Template.addressBirthdatePlaceholder") }}"
+            <input type="text" v-model="date" id="'datepicker' + _uid" placeholder="{{ trans("Ceres::Template.addressBirthdatePlaceholder") }}"
                 @change="emitInputEvent($event.target.value)"
             >
         </div>
@@ -31,14 +31,24 @@
                 return isEdge && !isTouch;
             },
         },
-        data() {
+        data: function() {
             return {
-                'date': null
+                date: ""
             }
         },
         methods: {
             emitInputEvent(value) {
-                this.$emit("input", { field: "birthday", value: value });
+                if (isEdgeDesktop) {
+                    var day = value.split(".")[0]
+                    var month = value.split(".")[1]
+                    var year = value.split(".")[2]
+                    if (day && month && year) {
+                        var birthday = year + "-" + month + "-" + day 
+                        this.$emit("input", { field: "birthday", value: birthday });
+                    }
+                } else {
+                    this.$emit("input", { field: "birthday", value: value });
+                }
             }
         },
     

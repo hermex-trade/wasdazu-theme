@@ -21,8 +21,6 @@
                 return this.fullAddress.split(" ")
             },
             streetName() {
-                // naive implementation
-                // return this.fullAddress.split(" ")[0]
                 var address = this.splittedAddress
                 return address.slice(0, address.length - 1).join(' ')
             },
@@ -34,7 +32,9 @@
                 return ""
             },
             isValid() {
-                return this.splittedAddress.length !== 0 && this.streetName !== "" && this.streetNumber !== ""
+                return this.splittedAddress.length !== 0 && 
+                    this.streetName !== "" && 
+                    this.streetNumber !== ""
             }
         },
         methods: {
