@@ -45,7 +45,6 @@
                     if (day && month && year) {
                         var birthday = year + "-" + month + "-" + day 
                         this.$emit("input", { field: "birthday", value: birthday });
-                        console.log("edge debug", birthday)
                     }
                 } else {
                     this.$emit("input", { field: "birthday", value: value });
