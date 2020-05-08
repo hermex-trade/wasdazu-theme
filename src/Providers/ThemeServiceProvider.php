@@ -24,7 +24,7 @@ class ThemeServiceProvider extends TemplateServiceProvider
 		$this->overrideTemplate("Ceres::Customer.Components.AddressSelect.CreateUpdateAddress", "WasdazuTheme::content.CreateUpdateAddress");
 		$this->overrideTemplate("Ceres::Customer.Components.SalutationSelect", "WasdazuTheme::content.SalutationSelect");
 		$this->overrideTemplate("Ceres::Customer.Components.AddressInputGroup.Locale.BillingAddressInputGroupDE", "WasdazuTheme::content.BillingAddressInputGroupDE");
-		$this->overrideTempalte("Ceres::Customer.Components.AddressInputGroup.Locale.DeliveryAddressInputGroupDE", "WasdazuTheme::content.DeliveryAddressInputGroupDE");
+		$this->overrideTemplate("Ceres::Customer.Components.AddressInputGroup.Locale.DeliveryAddressInputGroupDE", "WasdazuTheme::content.DeliveryAddressInputGroupDE");
 		
 		// Register own Vue Components
 		$eventDispatcher->listen('IO.Resources.Import', function (ResourceContainer $container)
