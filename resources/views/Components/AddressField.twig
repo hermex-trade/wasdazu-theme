@@ -35,13 +35,17 @@
                 return this.splittedAddress.length !== 0 && 
                     this.streetName !== "" && 
                     this.streetNumber !== ""
-            }
+            },
         },
         methods: {
             emitInputEvent() {
                 if (this.isValid) {
                     this.$emit("input", {field: "address1", value: this.streetName});
                     this.$emit("input", {field: "address2", value: this.streetNumber});
+                    console.log("Strassenname:)
+                    console.log(this.streetName)
+                    console.log("Hausnummer:")
+                    console.log(this.streetNumber)
                 } else {
                     var errorMsg = "Bitte Strasse überprüfen, haben Sie die Strasse sowie die Hausnummer angegeben?"
                     window.CeresNotification.error(errorMsg).closeAfter(5000);
