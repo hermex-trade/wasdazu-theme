@@ -21,11 +21,11 @@
                 return this.fullAddress.split(" ")
             },
             streetName() {
-                var address = this.splittedAddress
+                let address = this.splittedAddress
                 return address.slice(0, address.length - 1).join(' ')
             },
             streetNumber() {
-                var address = this.splittedAddress
+                let address = this.splittedAddress
                 if (address.length > 1) {
                     return address.slice(address.length - 1).join()
                 }
@@ -42,12 +42,8 @@
                 if (this.isValid) {
                     this.$emit("input", {field: "address1", value: this.streetName});
                     this.$emit("input", {field: "address2", value: this.streetNumber});
-                    console.log("Strassenname:)
-                    console.log(this.streetName)
-                    console.log("Hausnummer:")
-                    console.log(this.streetNumber)
                 } else {
-                    var errorMsg = "Bitte Strasse überprüfen, haben Sie die Strasse sowie die Hausnummer angegeben?"
+                    let errorMsg = "Bitte Strasse überprüfen, haben Sie die Strasse sowie die Hausnummer angegeben?"
                     window.CeresNotification.error(errorMsg).closeAfter(5000);
                 }
             },
