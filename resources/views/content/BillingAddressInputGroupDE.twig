@@ -1,6 +1,6 @@
 {{ component( "Ceres::Customer.Components.SalutationSelect" ) }}
 
-<div class="col-12">
+<div class="col-12" xmlns:v-validate="http://www.w3.org/1999/xhtml">
     <div class="row">
         <div v-if="isInOptionalFields('de', 'billing_address.salutation')" class="col-12 col-sm-4">
             <div v-validate="isInRequiredFields('de', 'billing_address.salutation')">
