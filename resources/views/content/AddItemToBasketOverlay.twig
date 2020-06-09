@@ -12,57 +12,20 @@
                     <!-- MODAL HEADER -->
                     <div class="modal-header">
                         <div class="modal-title h2">Vielen Dank!</div>
-                        <span class="text-muted ml-auto"><span class="timer"></span>s</span>
+                        <!--<span class="text-muted ml-auto"><span class="timer"></span>s</span>-->
                         <button type="button" class="close ml-0 pl-1" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
-                        <div>
-                            <p class="text-muted">Der Artikel wurde in den Warenkorb gelegt. Sie können nun Ihren Einkauf fortsetzen oder direkt zur Kasse gehen um den Bestellvorgang abzuschliessen.</p>    
-                        </div>
                     </div>
                     <!-- ./MODAL HEADER -->
 
                     <!-- MODAL BODY -->
                     <div class="modal-body">
                         <div class="row is-table-row">
-                            <div class="col-md-4" style="min-height: 80px;">
-                                <img style="max-height: 140px;" class="img-fluid mx-auto" :src="imageUrl" :alt="imageAlternativeText || itemName" :title="itemName"/>
+                            <div class="col-md-12">
+                                <p class="text-muted">Der Artikel wurde in den Warenkorb gelegt. Sie können nun Ihren Einkauf fortsetzen oder direkt zur Kasse gehen um den Bestellvorgang abzuschliessen.</p>    
                             </div>
-                            <div class="col-md-8">
-                                <p>
-                                    <strong>${ itemName }</strong>
-                                    <br>
-                                    <span v-if="countAdditionalBasketItems > 0">{{ trans("Ceres::Template.basketItemOverlayAdditionalCount", {"count": "${countAdditionalBasketItems}"}) }}</span>
-                                </p>
-
-                                <p class="small">
-                                    <strong>
-                                        <span class="text-muted">${ basketItem.quantity } x </span>
-                                        <span>${ price | currency }</span>
-                                    </strong>
-                                </p>
-
-                                {# <p>
-                                    <item-bundle v-if="isLastBasketEntrySet" :bundle-type="variation.variation.bundleType" :bundle-components="variation.bundleComponents"></item-bundle>
-                                </p> #}
-
-                                <p class="small" v-for="attribute in variation.attributes">
-                                    <strong>${ attribute.attribute.names.name }</strong>:
-                                    <span>${ attribute.value.names.name }</span>
-                                </p>
-
-                                <p class="small" v-for="property in variation.properties">
-                                    <template v-if="orderParamValue(property.property.id)">
-                                        <strong>${ orderParamName(property.property.id)} (+ ${ variation.properties | propertySurcharge(property.property.id) | currency })</strong>
-                                        <span v-if="property.property.valueType === 'file'">
-                                            <a :href="orderParamValue(property.property.id) | fileUploadPath" target="_blank">
-                                                <i class="fa fa-external-link" aria-hidden="true"></i>
-                                                : ${ orderParamValue(property.property.id) | fileName }
-                                            </a>
-                                        </span>
-                                        <span v-else-if="property.property.valueType !== 'empty'"><b>: </b>${ orderParamValue(property.property.id) }</span>
-                                    </template>
-                                </p>
+                            
                             </div>
                         </div>
                     </div>
@@ -81,7 +44,6 @@
                     </div>
                     {{ LayoutContainer.show("Ceres::Basket.ExtendOverlayButtons") }}
                     <!-- ./MODAL FOOTER -->
-
                 </div>
             </div>
         </div>
