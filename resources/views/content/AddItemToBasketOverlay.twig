@@ -1,7 +1,5 @@
 {% import "Ceres::PageDesign.Macros.LayoutContainer" as LayoutContainer %}
 
-{# {{ component( "Ceres::Item.Components.ItemBundle" ) }} #}
-
 <script type="x/template" id="vue-add-item-to-basket-overlay">
 
     <div id="add-item-to-basket-overlay">
@@ -57,10 +55,6 @@
                                         <span>${ price | currency }</span>
                                     </strong>
                                 </p>
-
-                                {# <p>
-                                    <item-bundle v-if="isLastBasketEntrySet" :bundle-type="variation.variation.bundleType" :bundle-components="variation.bundleComponents"></item-bundle>
-                                </p> #}
 
                                 <p class="small" v-for="attribute in variation.attributes">
                                     <strong>${ attribute.attribute.names.name }</strong>:
