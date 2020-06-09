@@ -8,7 +8,7 @@ use Plenty\Plugin\Events\Dispatcher;
 use IO\Helper\ResourceContainer;
 use IO\Helper\TemplateContainer;
 
-use WasdazuTheme\Contexts\WasdazuCrossSellingContext;
+use WasdazuTheme\Contexts\WasdazuSingleItemContext;
 
 class ThemeServiceProvider extends TemplateServiceProvider
 {
