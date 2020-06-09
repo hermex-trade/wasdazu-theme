@@ -26,9 +26,8 @@
                                 <p class="text-muted">Der Artikel wurde in den Warenkorb gelegt. Sie können nun Ihren Einkauf fortsetzen oder direkt zur Kasse gehen um den Bestellvorgang abzuschliessen.</p>    
                             </div>
                             <div class="col-md-12">
-                                Test text
-                                {{component("WasdazuTheme::Templates.CrossSellingAccessory")}}
-                                {{component("WasdazuTheme::Templates.CrossSellingSimilar")}}
+                                <slot name="cross-selling-accessory"></slot>
+                                <slot name="cross-selling-similar"></slot>
                             </div>
                         </div>
                     </div>

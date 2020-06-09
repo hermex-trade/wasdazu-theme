@@ -8,7 +8,7 @@ use Plenty\Plugin\Events\Dispatcher;
 use IO\Helper\ResourceContainer;
 use IO\Helper\TemplateContainer;
 
-use WasdazuTheme\Contexts\WasdazuSingleItemContext;
+use WasdazuTheme\Contexts\WasdazuCrossSellingContext;
 
 class ThemeServiceProvider extends TemplateServiceProvider
 {
@@ -40,9 +40,9 @@ class ThemeServiceProvider extends TemplateServiceProvider
 		}, 0);
 
 		// Register single item context extension
-		$eventDispatcher->listen('IO.ctx.Item', function (TemplateContainer $templateContainer, $templateData = [])
+		$eventDispatcher->listen('IO.ctx.global', function (TemplateContainer $templateContainer, $templateData = [])
 		{
-			$templateContainer->setContext(WasdazuSingleItemContext::class);
+			$templateContainer->setContext(WasdazuCrossSellingContext::class);
 			return false;
 		}, 0);
 	}
