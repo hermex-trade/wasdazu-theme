@@ -32,6 +32,8 @@ class ThemeServiceProvider extends TemplateServiceProvider
         {
             $container->addScriptTemplate('WasdazuTheme::Components.Datepicker');
 			$container->addScriptTemplate('WasdazuTheme::Components.AddressField');
+			$container->addScriptTemplate('WasdazuTheme::Templates.CrossSellingAccessory');
+			$container->addScriptTemplate('WasdazuTheme::Templates.CrossSellingSimilar');
 		}, 0);
 	}
 }
