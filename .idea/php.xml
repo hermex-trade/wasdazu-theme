@@ -3,6 +3,8 @@
   <component name="PhpIncludePathManager">
     <include_path>
       <path value="C:/GitProjects/plugin-ceres" />
+      <path value="C:/GitProjects/plugin-interface" />
+      <path value="C:/GitProjects/plugin-io" />
     </include_path>
   </component>
 </project>
