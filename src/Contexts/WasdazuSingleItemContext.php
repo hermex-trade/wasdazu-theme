@@ -8,7 +8,7 @@ use Ceres\Contexts\SingleItemContext;
 use IO\Services\ItemSearch\Services\ItemSearchService;    
 use IO\Services\ItemSearch\SearchPresets\CrossSellingItems;
 
-class WasdazuSingleItemContext extends GlobalContext implements ContextInterface
+class WasdazuSingleItemContext extends SingleItemContext implements ContextInterface
 {
     public $accessory;
     public $similar;
