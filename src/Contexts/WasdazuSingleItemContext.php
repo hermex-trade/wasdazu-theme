@@ -3,12 +3,12 @@
 namespace WasdazuTheme\Contexts;
 
 use IO\Helper\ContextInterface;
-use Ceres\Contexts\GlobalContext;
+use Ceres\Contexts\SingleItemContext;
 
 use IO\Services\ItemSearch\Services\ItemSearchService;    
 use IO\Services\ItemSearch\SearchPresets\CrossSellingItems;
 
-class WasdazuCrossSellingContext extends GlobalContext implements ContextInterface
+class WasdazuSingleItemContext extends SingleItemContext implements ContextInterface
 {
     public $accessory;
     public $similar;
@@ -19,19 +19,19 @@ class WasdazuCrossSellingContext extends GlobalContext implements ContextInterfa
 
         $options = array(
             "itemId" => $this->item['documents'][0]['data']['item']['id'],
-            "relation" => "Accessory"      // Nutze die Liste Zubehoer
+            "relation" => "Accessory"     
         );
         $searchfactory = CrossSellingItems::getSearchFactory( $options );
-        $searchfactory->setPage(1, 4); // Begrenze auf 4 Artikel
+        $searchfactory->setPage(1, 4); 
         $result = pluginApp(ItemSearchService::class)->getResult($searchfactory);
         $this->accessory = $result['documents'];
 
         $options = array(
             "itemId" => $this->item['documents'][0]['data']['item']['id'],
-            "relation" => "Similar"      // Nutze die Liste Zubehoer
+            "relation" => "Similar"    
         );
         $searchfactory = CrossSellingItems::getSearchFactory( $options );
-        $searchfactory->setPage(1, 4); // Begrenze auf 4 Artikel
+        $searchfactory->setPage(1, 4); 
         $result = pluginApp(ItemSearchService::class)->getResult($searchfactory);
         $this->similar = $result['documents'];
     }
