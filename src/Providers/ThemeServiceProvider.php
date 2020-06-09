@@ -42,7 +42,7 @@ class ThemeServiceProvider extends TemplateServiceProvider
 		// Register single item context extension
 		$eventDispatcher->listen('IO.ctx.item', function (TemplateContainer $templateContainer, $templateData = [])
 		{
-			$templateContainer->setContext(WasdazuCrossSellingContext::class);
+			$templateContainer->setContext(WasdazuSingleItemContext::class);
 			return false;
 		}, 0);
 	}
