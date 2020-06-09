@@ -1,5 +1,10 @@
+{% import "Ceres::PageDesign.Macros.LayoutContainer" as LayoutContainer %}
+
+{# {{ component( "Ceres::Item.Components.ItemBundle" ) }} #}
+
 <script type="x/template" id="vue-add-item-to-basket-overlay">
-     <div>
+
+    <div id="add-item-to-basket-overlay">
         <div class="modal fade">
             <div class="modal-dialog" role="document">
                 <div class="modal-content" v-if="basketItem">
@@ -7,7 +12,7 @@
                     <!-- MODAL HEADER -->
                     <div class="modal-header">
                         <div class="modal-title h2">Vielen Dank!</div>
-                        <span class="h5">Der Artikel wurde in den Warenkorb gelegt. Sie können nun Ihren Einkauf fortsetzen oder direkt zur Kasse gehen um den Bestellvorgang abzuschliessen.</span>
+                        <span class="text-muted ml-auto">Der Artikel wurde in den Warenkorb gelegt. Sie können nun Ihren Einkauf fortsetzen oder direkt zur Kasse gehen um den Bestellvorgang abzuschliessen.</span>
                         <span class="text-muted ml-auto"><span class="timer"></span>s</span>
                         <button type="button" class="close ml-0 pl-1" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
@@ -25,7 +30,7 @@
                                 <p>
                                     <strong>${ itemName }</strong>
                                     <br>
-                                    <span v-if="countAdditionalBasketItems > 0">${ $translate("Ceres::Template.basketItemOverlayAdditionalCount", {"count": countAdditionalBasketItems }) }</span>
+                                    <span v-if="countAdditionalBasketItems > 0">{{ trans("Ceres::Template.basketItemOverlayAdditionalCount", {"count": "${countAdditionalBasketItems}"}) }}</span>
                                 </p>
 
                                 <p class="small">
@@ -34,29 +39,28 @@
                                         <span>${ price | currency }</span>
                                     </strong>
                                 </p>
-                                <!--<p>
+
+                                {# <p>
                                     <item-bundle v-if="isLastBasketEntrySet" :bundle-type="variation.variation.bundleType" :bundle-components="variation.bundleComponents"></item-bundle>
-                                </p> -->
+                                </p> #}
 
                                 <p class="small" v-for="attribute in variation.attributes">
                                     <strong>${ attribute.attribute.names.name }</strong>:
                                     <span>${ attribute.value.names.name }</span>
                                 </p>
 
-                                <div class="small" v-if="shownOrderProperties.length">
-                                    <div class="font-weight-bold my-1">${ $translate("Ceres::Template.singleItemAdditionalOptions") }:</div>
-                                    <ul class="ml-0 pl-3">
-                                        <li v-for="property in shownOrderProperties" :key="property.propertyId">
-                                            <span class="d-block text-truncate">
-                                                <strong :class="{ 'colon': property.type.length > 0 }">${ property.name } (${ $translate("Ceres::Template.singleItemIncludeAbbr") } ${ basketItem.variation.data.properties | propertySurcharge(property.propertyId) | currency })</strong>
-                                                <span>
-                                                    <order-property-value :property="property"></order-property-value>
-                                                </span>
-                                            </span>
-                                        </li>
-                                    </ul>
-                                </div>
-
+                                <p class="small" v-for="property in variation.properties">
+                                    <template v-if="orderParamValue(property.property.id)">
+                                        <strong>${ orderParamName(property.property.id)} (+ ${ variation.properties | propertySurcharge(property.property.id) | currency })</strong>
+                                        <span v-if="property.property.valueType === 'file'">
+                                            <a :href="orderParamValue(property.property.id) | fileUploadPath" target="_blank">
+                                                <i class="fa fa-external-link" aria-hidden="true"></i>
+                                                : ${ orderParamValue(property.property.id) | fileName }
+                                            </a>
+                                        </span>
+                                        <span v-else-if="property.property.valueType !== 'empty'"><b>: </b>${ orderParamValue(property.property.id) }</span>
+                                    </template>
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -64,20 +68,21 @@
 
                     <!-- MODAL FOOTER -->
                     <div class="modal-footer">
-                        <a v-waiting-animation-infinite :href="urls.basket" rel="nofollow" class="btn btn-outline-primary btn-medium mr-2">
+                        <a v-waiting-animation-infinite href="{{ urls.basket }}" rel="nofollow" class="btn btn-outline-primary btn-medium mr-2">
                             <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                            ${ $translate("Ceres::Template.singleItemBasket") }
+                            {{ trans("Ceres::Template.singleItemBasket") }}
                         </a>
-                        <a v-waiting-animation-infinite :href="urls.checkout" rel="nofollow" class="btn btn-primary btn-medium">
+                        <a v-waiting-animation-infinite href="{{ urls.checkout }}" rel="nofollow" class="btn btn-primary btn-medium">
                             <i class="fa fa-arrow-right" aria-hidden="true"></i>
-                            ${ $translate("Ceres::Template.singleItemCheckout") }
+                            {{ trans("Ceres::Template.singleItemCheckout") }}
                         </a>
                     </div>
-                    <slot name="extendOverlayButtons"></slot>
+                    {{ LayoutContainer.show("Ceres::Basket.ExtendOverlayButtons") }}
                     <!-- ./MODAL FOOTER -->
 
                 </div>
             </div>
         </div>
     </div>
+
 </script>
