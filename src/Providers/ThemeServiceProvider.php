@@ -7,6 +7,8 @@ use Plenty\Plugin\Templates\Twig;
 use Plenty\Plugin\Events\Dispatcher;
 use IO\Helper\ResourceContainer;
 
+use WasdazuTheme\Contexts\WasdazuSingleItemContext;
+
 class ThemeServiceProvider extends TemplateServiceProvider
 {
  
@@ -34,6 +36,13 @@ class ThemeServiceProvider extends TemplateServiceProvider
 			$container->addScriptTemplate('WasdazuTheme::Components.AddressField');
 			$container->addScriptTemplate('WasdazuTheme::Templates.CrossSellingAccessory');
 			$container->addScriptTemplate('WasdazuTheme::Templates.CrossSellingSimilar');
+		}, 0);
+
+		// Register single item context extension
+		$eventDispatcher->listen('IO.ctx.SingleItem', function (TemplateContainer $templateContainer, $templateData = [])
+		{
+			$templateContainer->setContext(WasdazuSingleItemContext::class);
+			return false;
 		}, 0);
 	}
 }
