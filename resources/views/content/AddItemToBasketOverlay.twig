@@ -25,6 +25,22 @@
                             <div class="col-md-12" style="min-height: 80px;">
                                 <p class="text-muted">Der Artikel wurde in den Warenkorb gelegt. Sie können nun Ihren Einkauf fortsetzen oder direkt zur Kasse gehen um den Bestellvorgang abzuschliessen.</p>    
                             </div>
+                            <div>
+                            {% $CrossSellingType = "Accessory" %}
+                                    {% if Container_ItemViewCrossSellingItemsList2() %}
+                                        <div class="row">
+                                            <div class="productdetails_InlineCrossSelling crossSellingBoxInPopUp categoryView isGridView">
+                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-top-0">
+                                                    <hr>
+                                                    <h4 class="modal-title margin-bottom-15" style="text-align: left;">Gleich mitbestellen</h4>
+                                                    {% Container_ItemViewCrossSellingItemsList2() %}
+                                                    <!-- cross-selling - Accessory - END -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                                            
+                                {% endif %}
+                            </div>
                             <div class="col-md-4" style="min-height: 80px;">
                                 <img style="max-height: 140px;" class="img-fluid mx-auto" :src="imageUrl" :alt="imageAlternativeText || itemName" :title="itemName"/>
                             </div>
