@@ -6,6 +6,7 @@ use Plenty\Modules\Webshop\Template\Providers\TemplateServiceProvider;
 use Plenty\Plugin\Templates\Twig;
 use Plenty\Plugin\Events\Dispatcher;
 use IO\Helper\ResourceContainer;
+use IO\Helper\TemplateContainer;
 
 use WasdazuTheme\Contexts\WasdazuSingleItemContext;
 
