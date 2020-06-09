@@ -5,14 +5,10 @@ namespace WasdazuTheme\Contexts;
 use IO\Helper\ContextInterface;
 use Ceres\Contexts\SingleItemContext;
 
-/**
-*  Bis Ceres 4 
-*/
 use IO\Services\ItemSearch\Services\ItemSearchService;    
 use IO\Services\ItemSearch\SearchPresets\CrossSellingItems;
 
-
-class ThemeNameSingleItemContext extends SingleItemContext implements ContextInterface
+class WasdazuSingleItemContext extends SingleItemContext implements ContextInterface
 {
     public $accessory;
     public $similar;
