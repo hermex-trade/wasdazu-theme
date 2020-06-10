@@ -3,7 +3,6 @@
 namespace WasdazuTheme\Contexts;
 
 use IO\Helper\ContextInterface;
-use Ceres\Contexts\GlobalContext;
 
 use IO\Services\ItemSearch\Services\ItemSearchService;    
 use IO\Services\ItemSearch\SearchPresets\CrossSellingItems;
